@@ -213,10 +213,10 @@ function addTen(arr) {
   for (var i = 0; i < arr.length; i++) {
     console.log('Showing addTen forloop: ' + parseInt(arr[i]) + 10);
     arr[i] = parseInt(arr[i]) + 10;
-  } 
+  }
   return arr;
 }
-console.log('Showing the AddTen: '+ addTen(numbers));
+console.log('Showing the AddTen: ' + addTen(numbers));
 
 
 
@@ -234,25 +234,43 @@ for (var i = 0; i < num2; i++) {
 }
 //Above is some code that adds a random number of values to both arr1 and arr2.
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
-
 //Code Here
 
+function longer(arr1, arr2) {
+  if (arr1.length > arr2.length) {
+    return arr1;
+  } else {
+    return arr2;
+  }
+}
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example).
   'both' should return a new array with the matching numbers found in both arr1 and arr2.
   Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
-
 //Code Here
+var tempArr1 = [1,2,3,4];
+var tempArr2 = [2,4,5,6];
 
+function both(barr1, barr2) {
+  var tempArray = [];
+  for (var i = 0; i < barr1.length; i++) {
+    for (var i2 = 0; i2 < barr2.length; i2++) {
+      if (barr1[i] !== undefined && barr2[i2] !== undefined) {
+        if (barr1[i] === barr2[i2]) {
+          tempArray.push(barr2[i2]);
+        }
+      }
+    }
+  }
 
+  return tempArray;
+}
 
+console.log('Showing return for Both: ' + both(tempArr1, tempArr2));
 
 //NEXT PROBLEM
-
-
-
 
 var devMountainEmployees = [];
 
@@ -283,15 +301,22 @@ var colt = {
 /*Above you're given an empty array with four objects. Fill the devMountainEmployees
 array with those four objects. After that console.log the length of the Array and make
 sure that it's equal to 4. */
-
 //Code Here
+
+devMountainEmployees.push(tyler);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
 
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
-
 //Code Here
 
-
+for (var i = 0; i < devMountainEmployees.length; i++) {
+  if (devMountainEmployees[i].name === 'Cahlan') {
+    devMountainEmployees.splice(i, 1);
+  }
+}
 
 
 //NEXT PROBLEM
@@ -301,11 +326,20 @@ Loop through your devMountainEmployees until you find cahlan, then remove him fr
 of Data is to have an Array full of objects. */
 
 //Create an empty array called users.
+var users = [];
 
 //Code Here
 
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
+var kevin = {
+  name: 'Kevin',
+  email: 'kevin@kevinlabs.com',
+  password: 'IloveJS',
+  username: 'kevin'
+};
+
+users.push(kevin);
 
 //include this as one of the objects in your array.
 var user1 = {
@@ -314,6 +348,9 @@ var user1 = {
   password: 'iLoveJavaScript',
   username: 'infiniateLoop'
 };
+
+users.push(user1);
+
 
 //Your Code Here
 
@@ -324,7 +361,12 @@ and those objects contain properties about the specific person you follow.*/
 /*Now let's say that Tyler decided to delete his account. Loop through your array of
 objects until you find Tyler's account (use tylermcginnis33@gmail.com to find him).
 Once you find the particular index he's located in, delete him from the array.*/
-
 //Code Here
+
+for (var i = 0; i < users.length; i++) {
+  if (users[i].email === 'tylermcginnis33@gmail.com') {
+    users.splice(i, 1);
+  }
+}
 
 //The activity we just did is very much how data works in 'the real world'.
